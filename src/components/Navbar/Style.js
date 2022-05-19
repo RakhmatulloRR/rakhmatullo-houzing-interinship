@@ -34,17 +34,15 @@ Logo.Icon = styled(LogoIcon)``;
 Logo.Title = styled.div`
   margin-left: 11px;
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 600;
 `;
 const NavbarBody = styled.div`
-font-family: "Montserrat";
   display: flex;
   align-items: center;
   justify-content: center;
   flex: 1;
   color: white;
   /* background-color: blue; */
-
 `;
 const activeStyle = ({ isActive }) => {
   return {
@@ -53,7 +51,7 @@ const activeStyle = ({ isActive }) => {
     margin: "0 32px",
     fontStyle: "normal",
     fontWeight: 400,
-    fontSize: "18px",
+    fontSize: "16px",
     lineHeight: "24px",
   };
 };
