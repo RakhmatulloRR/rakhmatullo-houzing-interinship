@@ -411,10 +411,10 @@ You can download the PDF and Epub version of this repository from the latest run
 
 4.  ### What is the difference between Element and Component?
 
-    _Element_ - bu DOM tugunlari yoki boshqa komponentlar nuqtai nazaridan ekranda nima paydo bo'lishini tavsiflovchi oddiy ob'ekt. 
-    _Element_-lar o'z _props_-da boshqa elementlarni o'z ichiga olishi mumkin. 
-    React _element_-ini yaratish arzon(oson). 
-    _Element_ yaratilgandan keyin u hech qachon mutatsiyaga uchramaydi.
+    - _Element_ - bu DOM tugunlari yoki boshqa komponentlar nuqtai nazaridan ekranda nima paydo bo'lishini tavsiflovchi oddiy ob'ekt. 
+    - _Element_-lar o'z _props_-da boshqa elementlarni o'z ichiga olishi mumkin. 
+    - React _element_-ini yaratish arzon(oson). 
+    - _Element_ yaratilgandan keyin u hech qachon mutatsiyaga uchramaydi.
 
     React Element'ini tafsiflovchi ob'ektining ko'rinishi quyidagicha bo'ladi:
 
@@ -444,9 +444,9 @@ You can download the PDF and Epub version of this repository from the latest run
     <div id="login-btn">Login</div>
     ```
 
-    Holbuki, **komponent** bir necha xil usullarda e'lon qilinishi mumkin. 
-    Bu `render()` usuli bo'lgan sinf bo'lishi mumkin yoki u funksiya sifatida belgilanishi mumkin. 
-    Har qanday holatda ham u _props_ni *input* sifatida oladi va JSX daraxtini *output* sifatida qaytaradi:
+      - Holbuki, **komponent** bir necha xil usullarda e'lon qilinishi mumkin. 
+      - Bu `render()` usuli bo'lgan _Class_ bo'lishi mumkin yoki u funksiya sifatida belgilanishi mumkin. 
+      - Har qanday holatda ham u _props_-ni *input* sifatida oladi va JSX daraxtini *output* sifatida qaytaradi:
 
     ```javascript
     const Button = ({ onLogin }) => (
