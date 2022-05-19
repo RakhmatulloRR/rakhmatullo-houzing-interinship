@@ -10,10 +10,16 @@ const Button = styled.button`
   padding: 0px 40px;
   border: 1px solid white;
   border-radius: 2px;
+
+  font-size: 14px;
+  font-weight: 400;
+  font-family: inherit;
+  line-height: 20px;
   height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
+
   /* width: 120px; */
 `;
 export { Button };
