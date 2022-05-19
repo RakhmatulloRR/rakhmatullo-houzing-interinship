@@ -34,7 +34,7 @@ Logo.Icon = styled(LogoIcon)``;
 Logo.Title = styled.div`
   margin-left: 11px;
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 500;
 `;
 const NavbarBody = styled.div`
   display: flex;
