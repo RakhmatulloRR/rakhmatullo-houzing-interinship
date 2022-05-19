@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+body {
+  font-family: "Fira Code", monospace;
+  font-family: "Montserrat", sans-serif;
+  background-color: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primaryColar: #0d263b;
+  --secondaryColar: #696969;
+  --activeColar: #0061df;
+
+  --width: 1440px;
+}
+
+.title {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 28px;
+  /* line-height: 36px; */
+  /* text-align: center; */
+  letter-spacing: -0.02em;
+  color: #0d263b;
+}
+.subTitle {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  /* line-height: 28px; */
+  /* text-align: center; */
+  color: #0d263b;
+}
+
+.description {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: #696969;
+}
+.center {
+  display: flex;
+  justify-content: center;
+}
+.nocopy {
+  -webkit-touch-callout: none; /* IOS Safary */
+  -webkit-user-select: none; /* Safary */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox  */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /*  */
+}
