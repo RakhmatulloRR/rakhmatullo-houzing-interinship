@@ -1,8 +1,8 @@
 import React from 'react'
 import { Container } from './Style'
 
-export default function Simple() {
+export default function Proporties() {
   return (
-    <Container>Simple</Container>
+    <Container>Proporties</Container>
   )
 }
