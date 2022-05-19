@@ -366,7 +366,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
 ## Core React
 
-1.  ### what is React?
+1.  ### React nime?
 
     - React - bu foydalanuvchi interfeyslarini yaratish uchun **ochiq manbali JavaScript kutubxonasi**,
     - ! ayniqsa, bir sahifali ilovalar uchun ishlatiladi .
@@ -376,7 +376,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
   **[⬆ Back to Top](#table-of-contents)**
 
-2.  ### What are the major features of React? - Reactning asosiy xususiyatlari qanday?
+2.  ### Reactning asosiy xususiyatlari qanday?
 
     Reactning asosiy xususiyatlari:
 
@@ -387,7 +387,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
     **[⬆ Back to Top](#table-of-contents)**
 
-3.  ### What is JSX?
+3.  ### JSX nima?
 
     - _JSX_ - bu ECMAScript-ning XML-ga o'xshash sintaksisi kengaytmasi (qisqartma _JavaScript XML_ degan ma'noni anglatadi). 
     - Asosan u `React.createElement()` funksiyasi uchun **sintaktik shakarni** taqdim etadi, 
