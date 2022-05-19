@@ -366,13 +366,13 @@ You can download the PDF and Epub version of this repository from the latest run
 
 ## Core React
 
-# 1. what is React?
+1.  ### what is React?
 
-- React - bu foydalanuvchi interfeyslarini yaratish uchun **ochiq manbali JavaScript kutubxonasi**,
-- ! ayniqsa, bir sahifali ilovalar uchun ishlatiladi .
-- U veb va mobil ilovalar uchun ko'rinish qatlamini (yaratish) boshqarish uchun ishlatiladi.
-- Reactni Facebook’da ishlaydigan dasturiy ta’minot muhandisi [Jordan Walke](https://github.com/jordwalke) yaratgan.
-- React birinchi marta Facebook-ning News Feed-da 2011-yilda va Instagram-da 2012-yilda joylashtirilgan.
+    - React - bu foydalanuvchi interfeyslarini yaratish uchun **ochiq manbali JavaScript kutubxonasi**,
+    - ! ayniqsa, bir sahifali ilovalar uchun ishlatiladi .
+    - U veb va mobil ilovalar uchun ko'rinish qatlamini (yaratish) boshqarish uchun ishlatiladi.
+    - Reactni Facebook’da ishlaydigan dasturiy ta’minot muhandisi [Jordan Walke](https://github.com/jordwalke) yaratgan.
+    - React birinchi marta Facebook-ning News Feed-da 2011-yilda va Instagram-da 2012-yilda joylashtirilgan.
 
   **[⬆ Back to Top](#table-of-contents)**
 
@@ -445,7 +445,7 @@ You can download the PDF and Epub version of this repository from the latest run
     ```
 
       - Holbuki, **komponent** bir necha xil usullarda e'lon qilinishi mumkin. 
-      - Bu `render()` usuli bo'lgan _Class_ bo'lishi mumkin yoki u funksiya sifatida belgilanishi mumkin. 
+      - Bu `render()` usuli bo'lgan _Class_ bo'lishi mumkin yoki u _funksiya_ sifatida belgilanishi mumkin. 
       - Har qanday holatda ham u _props_-ni *input* sifatida oladi va JSX daraxtini *output* sifatida qaytaradi:
 
     ```javascript
