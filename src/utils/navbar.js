@@ -1,5 +1,7 @@
 import Main from "../pages/Main/Main";
 import Proporties from "../pages/Proporties/Proporties";
+import Contacts from "../pages/Contacts/Contacts";
+
 import Generic from "../pages/Generic/Generic";
 
 export const navbar = [
@@ -25,7 +27,7 @@ export const navbar = [
     id: 3,
     title: "Contacts",
     path: "/contacts",
-    Element: <Generic />,
+    Element: <Contacts />,
     search: "?",
     hidden: false,
     private: false,
@@ -34,7 +36,7 @@ export const navbar = [
     id: 4,
     title: "Sign In",
     path: "/signin",
-    Element: <div />,
+    Element: <Generic />,
     search: "?",
     hidden: true,
     private: false,
@@ -43,7 +45,7 @@ export const navbar = [
     id: 5, 
     title: "Sign Up",
     path: "/signup",
-    Element: <div />,
+    Element: <Generic />,
     search: "?",
     hidden: true,
     private: false,

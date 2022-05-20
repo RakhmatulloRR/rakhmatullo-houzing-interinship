@@ -1,21 +1,23 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar";
-import Contacts from "../pages/Contacts/Contacts";
-import Main from "../pages/Main/Main";
-import Proporties from "../pages/Proporties/Proporties";
+import { navbar } from "../utils/navbar";
 import Container from "./Style";
 
 export default function Root() {
   return (
     <Container>
       <Routes>
-        <Route path="/" element={<Navbar />}>
+        {navbar.map(({ id, path, Element, hidden }) => {
+          return hidden && <Route key={id} path={path} element={Element} />;
+        })}
+        <Route element={<Navbar />}>
+          {navbar.map(({ id, path, Element, hidden }) => {
+            return !hidden && <Route key={id} path={path} element={Element} />;
+          })}
           <Route path="/" element={<Navigate to="/home" />} />
-          <Route path="/home" element={<Main />} />
-          <Route path="/proporties" element={<Proporties />} />
-          <Route path="/contacts" element={<Contacts />} />
         </Route>
+          <Route path="*" element={<div>Not Found</div>} />
       </Routes>
     </Container>
   );

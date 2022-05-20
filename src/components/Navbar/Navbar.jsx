@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "../Generic/Button";
+import  Button  from "../Generic/Button/Button";
 import {
   activeStyle,
   Container,
@@ -8,15 +8,19 @@ import {
   NavbarWrapper,
   Wrapper,
 } from "./Style";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { navbar } from "../../utils/navbar";
 export default function Navbar() {
+  const navigate = useNavigate()
+  const goToSignIn = (params) => {
+    navigate("/signin")
+  }
   return (
     <>
       <Wrapper>
         <Container className="nocopy">
           <NavbarWrapper>
-            <Logo>
+            <Logo onClick={() => navigate("/home")}>
               <Logo.Icon />
               <Logo.Title>Houzing</Logo.Title>
             </Logo>
@@ -30,7 +34,7 @@ export default function Navbar() {
               })}
             </NavbarBody>
             <Logo>
-              <Button>Login</Button>
+              <Button onClick={goToSignIn} width={"120px"}>Login</Button>
             </Logo>
           </NavbarWrapper>
         </Container>
