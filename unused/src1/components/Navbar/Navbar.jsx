@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "../Generic/Button";
+import Button  from "../Generic/Button/Button";
 import {
   activeStyle,
   Container,
@@ -22,6 +22,7 @@ export default function Navbar() {
             </Logo>
             <NavbarBody>
               {navbar.map((value) => {
+                console.log("heeey")
                 return !value.hidden && (
                   <NavLink to={value.path} key={value.id} style={activeStyle}>
                     {value.title}
@@ -30,7 +31,7 @@ export default function Navbar() {
               })}
             </NavbarBody>
             <Logo>
-              <Button>Login</Button>
+              <Button>Logi</Button>
             </Logo>
           </NavbarWrapper>
         </Container>

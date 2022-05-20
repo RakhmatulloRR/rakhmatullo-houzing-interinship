@@ -391,9 +391,9 @@ You can download the PDF and Epub version of this repository from the latest run
 
     - _JSX_ - bu ECMAScript-ning XML-ga o'xshash sintaksisi kengaytmasi (qisqartma _JavaScript XML_ degan ma'noni anglatadi). 
     - Asosan u `React.createElement()` funksiyasi uchun **sintaktik shakarni** taqdim etadi, 
-    - **sintaktik shakarni** bizga JavaScript-ning ifodaliligini va HTML kabi shablon sintaksisini beradi.
+    - **sintaktik shakar** bizga JavaScript-ning ifodaliligini va HTML kabi shablon sintaksisini beradi.
 
-    Quyidagi misolda `<h1>` tegi ichidagi matn render funksiyasiga JavaScript funksiyasi sifatida qaytariladi.
+    Quyidagi misolda `<h1>` tegi ichidagi matn _render_ funksiyasiga JavaScript funksiyasi sifatida qaytariladi.
 
     ```jsx harmony
     class App extends React.Component {
