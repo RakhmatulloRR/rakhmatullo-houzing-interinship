@@ -17,7 +17,7 @@ export default function Root() {
           })}
           <Route path="/" element={<Navigate to="/home" />} />
         </Route>
-          <Route path="*" element={<div>Not Found</div>} />
+        <Route path="*" element={<div>Not Found</div>} />
       </Routes>
     </Container>
   );
