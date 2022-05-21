@@ -17,6 +17,7 @@ export const Root = () => {
         })}
       </Route>
       <Route path="/" element={<Navigate to={"/home"} />} />
+      <Route path="*" element={<div>Not Found</div>} />
     </Routes>
   );
 };
