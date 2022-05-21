@@ -1,54 +1,43 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-function getType(type) {
+const getType = (type) => {
   switch (type) {
-    case "secondary":
+    case 'secondary':
       return {
-        border: "1px solid #ebe9ec",
-        color: "#0d213b",
+        border: '1px solid #e6e9ec',
+        color: '#0D263B',
       };
-    case "primary":
+    case 'primary':
       return {
-        backgroundColor: "#0061df",
-        border: "none",
-        color: "#ffffff",
+        background: '#0061DF',
+        color: '#FFFFFF',
+        border: 'none',
       };
     default:
       return {
-        border: "1px solid #ebe9ec",
-        color: "#ffffff",
+        border: '1px solid #E6E9EC',
+        color: '#FFFFFF',
       };
   }
-}
+};
 
 const Container = styled.input`
   display: flex;
-  justify-content: center;
-  align-items: center;
-
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
-
-  height: ${({ height }) => height || "44px"};
-  max-width: ${({ width }) => (width ? width : "100%")};
-  width: ${({ width }) => (width ? width : "100%")};
+  height: ${({ height }) => height || '44px'};
+  width: ${({ width }) => width || '100%'};
+  border-radius: 2px;
+  padding-left: ${({ pl }) => pl? `${pl}px` : '15px'};
   margin-right: ${({ mr }) => `${mr}px`};
   margin-left: ${({ ml }) => `${ml}px`};
   margin-top: ${({ mt }) => `${mt}px`};
   margin-bottom: ${({ mb }) => `${mb}px`};
-  padding-left: ${({ pl }) => `${pl}px`};
-  border-radius: 2px;
-  color: "#0d263b";
-  cursor: pointer;
-  border: 1px solid #ebe9ec;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #0d263b;
+  border: 1px solid #e6e9ec;
   /* ${({ type }) => getType(type)} */
-  /* :active {
-    transform: scale(0.98);
-    opacity: 0.7;
-  } */
 `;
 
 const Wrapper = styled.div`
@@ -68,4 +57,5 @@ const Icon = styled.div`
   top: 50%;
   left: 30px;
 `;
+
 export { Container, Wrapper, Icon };
