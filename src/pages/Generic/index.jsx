@@ -1,7 +1,8 @@
 import React from 'react';
+import { Container } from './style';
 
 export const Generic = () => {
-  return <div>{window.location.pathname} coming soon...</div>;
+  return <Container>{window.location.pathname} coming soon...</Container>;
 };
 
 export default Generic;
