@@ -1,31 +1,32 @@
-import React from 'react';
+import React, {memo} from 'react'
 import { Container } from './style';
 
 export const Button = ({
-  children,
-  onClick,
-  height,
-  width,
-  type,
-  mr,
-  ml,
-  mb,
-  mt,
+    children,
+    onClick,
+    height,
+    width,
+    type,
+    mr,
+    ml,
+    mb,
+    mt,
 }) => {
   return (
     <Container
-      mr={mr}
-      ml={ml}
-      mb={mb}
-      mt={mt}
-      type={type}
-      width={width}
-      height={height}
-      onClick={onClick}
+        mr={mr}
+        ml={ml}
+        mb={mb}
+        mt={mt}
+        type={type}
+        width={width}
+        height={height}
+        onClick={onClick}
+        children={children}
     >
-      {children}
+        {children}
     </Container>
   );
 };
 
-export default Button;
+export default memo(Button)

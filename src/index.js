@@ -1,17 +1,21 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
-import "./index.css";
-import Root from "./root";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import './index.css';
+import { Root } from './root';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import {ReactQueryDevtools} from "react-query/devtools"
 
-import 'antd/dist/antd.css';
-// import 'react-alice-carousel/lib/alice-carousel.css';
+const query = new QueryClient();
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Root />
-    </BrowserRouter>
+    <QueryClientProvider client={query}>
+      <BrowserRouter>
+        <Root />
+      </BrowserRouter>
+      <ReactQueryDevtools  initialIsOpen={false}  position="bottom-left" />
+    </QueryClientProvider>
   </React.StrictMode>
 );

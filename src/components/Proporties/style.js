@@ -1,34 +1,58 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
+import { Select } from 'antd';
+
 
 const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-const Title = styled.div`
-  display: flex;
-  max-width: var(--width);
-  width: 100%;
-  margin-top: 70px;
-  margin-bottom: 15px;
-  font-size: 18px;
-`;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    @media (max-width: 768px) {
+        margin-top: 70px;
+    }
+`
 
 const Wrapper = styled.div`
-  /* display: flex;
-  max-width: var(--width);
-  width: 100%;
-  flex-wrap: wrap;
-  gap: 20px;
-  */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1440px;
+    padding: 0 130px;
+    padding-top: 64px;
+    @media (max-width: 768px) {
+        padding: 0;
+    }
+`
 
-  display: grid;
-  grid-gap: 20px 20px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-auto-rows: auto;
-  width: 100%;
-  padding: 0 130px;
-  max-width: var(--width);
-`;
+const CountWrapper = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 70px;
+`
 
-export { Container, Wrapper, Title };
+CountWrapper.Sort = styled(Select)`
+    border: none;
+    outline: none;
+    .ant-select:not(.ant-select-customize-input) .ant-select-selector{
+        border: none;
+        outline: none;
+    }
+`
+
+const Cards = styled.div`
+    width: 100%;
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap : 20px;
+    @media (max-width: 768px) {
+        grid-template-columns: repeat(1, 1fr);
+    }
+`
+
+
+
+
+export { Container, Wrapper, CountWrapper, Cards }

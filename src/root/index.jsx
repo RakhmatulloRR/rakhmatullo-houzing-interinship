@@ -1,25 +1,25 @@
-import React from "react";
-import { Route, Routes, Navigate } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import { navbar } from "../utils/navbar";
+import React from 'react'
+import { Routes, Route, Navigate} from 'react-router-dom'
+import Footer from '../components/Footer'
+import Navbar from '../components/Navbar'
+import { NotFound } from '../components/NotFound'
+import { navbar } from '../utils/navbar'
 
 export const Root = () => {
   return (
-    <Routes>
-      {navbar.map(({ Element, path, id, hidden }) => {
-        return hidden && <Route key={id} path={path} element={Element} />;
-      })}
-
-      {/* main */}
-      <Route element={<Navbar />}>
-        {navbar.map(({ Element, path, id, hidden }) => {
-          return !hidden && <Route key={id} path={path} element={Element} />;
-        })}
-      </Route>
-      <Route path="/" element={<Navigate to={"/home"} />} />
-      <Route path="*" element={<div>Not Found</div>} />
-    </Routes>
-  );
-};
-
-export default Root;
+    <>
+      <Routes>
+        <Route path='/' element={<Navigate to={'/home'} />} />
+        <Route element={<Navbar />}>
+            {navbar.map((item) => (
+                <Route key={item.id} path={item.path} element={item.element} />
+              )
+            )}
+        </Route>
+        <Route path='*' element={<NotFound />} />
+      </Routes>
+      <Footer />
+    </>
+  )
+  
+}
