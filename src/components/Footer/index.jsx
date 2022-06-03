@@ -14,7 +14,7 @@ export const Footer = () => {
                 </Section>
                 <Section>
                     <Icons.Call />
-                    <Description>+99899-104-69-43</Description>
+                    <Description>123 456 7890.</Description>
                 </Section>
                 <Section>
                     <Icons.Email />

@@ -41,12 +41,12 @@ CountWrapper.Sort = styled(Select)`
     }
 `
 
-const Cards = styled.div`
+const Body = styled.div`
     width: 100%;
     margin-top: 16px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     grid-gap : 20px;
+    grid-template-columns: repeat(3, 1fr);
     @media (max-width: 768px) {
         grid-template-columns: repeat(1, 1fr);
     }
@@ -55,4 +55,4 @@ const Cards = styled.div`
 
 
 
-export { Container, Wrapper, CountWrapper, Cards }
+export { Container, Wrapper, CountWrapper, Body }

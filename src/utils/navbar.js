@@ -1,10 +1,10 @@
-import Home from '../pages/Home';
-import Properties from '../pages/Properties';
-import Contacts from '../pages/Contacts';
+import Home from '../pages/HomePage';
+import Properties from '../pages/PropertiesPage';
+import Contacts from '../pages/ContactsPage';
 import Register from '../components/Register';
 import { SignIn } from '../components/SignIn';
-import { Favourite } from '../pages/Favourite';
-import { NotFound } from '../components/NotFound';
+import { Favourite } from '../pages/FavouritePage';
+import SelectedHouse from '../pages/SelectedHouse';
 
 
 export const navbar = [
@@ -62,4 +62,15 @@ export const navbar = [
         hidden: true,
         private: false,
     },
-]
+    {
+        id: 7,
+        title: 'Selected House',
+        path: '/properties/:id',
+        element: <SelectedHouse />,
+        search: '?',
+        params: true,
+        hidden: true,
+        private: false,
+    },
+];
+

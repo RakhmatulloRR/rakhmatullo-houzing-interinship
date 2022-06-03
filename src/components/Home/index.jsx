@@ -4,7 +4,7 @@ import Filter from '../Filter'
 import { Container } from './style'
 import { Recommended } from './Recomented'
 import Choose from './Choose'
-import { Categories } from './Categories'
+import { Category } from './Category'
 
 
 export const HomeComponent = () => {
@@ -14,7 +14,7 @@ export const HomeComponent = () => {
       <Main />
       <Recommended />
       <Choose />
-      <Categories />
+      <Category />
     </Container>
   )
 }

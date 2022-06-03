@@ -2,7 +2,17 @@ import styled from 'styled-components';
 import {ReactComponent as address} from '../../assets/icons/address.svg'
 import {ReactComponent as settings} from '../../assets/icons/settings.svg'
 import {ReactComponent as search} from '../../assets/icons/search.svg'
-
+//! Mundarija
+// Container
+// -Wrapper
+// --Input
+// ---Icon.Home
+// --Popover content={content}
+// ---Button
+// ----Icon.Settings
+// ---Advanced <- content
+// --Button
+// ---Icon.Search
 
 const Container = styled.div`
     display: flex;
@@ -25,12 +35,10 @@ const Wrapper = styled.div`
 `
 
 const Icon = styled.div``
-
 Icon.Home = styled(address)`
     margin-right: 8px;
     margin-top: 6px;
 `
-
 Icon.Settings = styled(settings)`
     margin-right: 8px;
 `
@@ -69,6 +77,7 @@ const Select = styled.select`
     border: 1px solid #E6E9EC;
     padding: 0 10px;
     outline: none;
+    
 `
 
 

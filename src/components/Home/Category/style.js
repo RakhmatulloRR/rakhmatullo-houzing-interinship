@@ -82,11 +82,10 @@ const Col = styled.div`
   border-radius: 5px;
   overflow: hidden;
   cursor: pointer;
-  
   :hover {
     .img-categories{
       transform: scale(1.1);
-      transition: all 1s ease;
+      transition: all .9s ease;
     }
   }
 `

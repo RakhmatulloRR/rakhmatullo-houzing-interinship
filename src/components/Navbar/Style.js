@@ -4,6 +4,14 @@ import {ReactComponent as logoIcon} from '../../assets/icons/logo.svg'
 import {ReactComponent as menu} from '../../assets/icons/hamburger.svg'
 import {ReactComponent as user} from '../../assets/icons/user.svg'
 import { Drawer } from 'antd';
+// wrapper
+// -container
+// --NavbarWrapper
+// ---Logo
+// ---NavbarBody
+// ---LoginSpan
+// -Body
+// --Outlet
 
 
 const Wrapper = styled.div`
@@ -16,29 +24,22 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
     background-color: var(--primaryColor);
-
-    -webkit-touch-callout: none; // iOS Safari
-    -webkit-user-select: none; // Safari
-    -khtml-user-select: none; // Konqueror HTML
-    -moz-user-select: none; // Old versions of Firefox
-    -ms-user-select: none; // Internet Explorer/Edge
-    user-select: none; /* Non-prefixed version, currently
-                        supported by Chrome, Opera and Firefox */
 `;
 
 const NavbarWrapper = styled.div`
     display: flex;
-    align-items: center;
     height: 64px;
     max-width: 1440px;
-    padding: 0 130px;
     font-family: 'Montserrat';
     font-style: normal;
+    align-items: center;
     font-weight: 400;
     font-style: 16px;
     line-height: 24px;
     width: 100%;
     color: #ffffff;
+    padding: 0 130px;
+
     @media (max-width: 768px) {
         justify-content: space-between;
         padding: 0 30px;
@@ -57,6 +58,7 @@ const NavbarBody = styled.div`
     align-items: center;
     justify-content: center;
     color: white;
+    
     .active{
         color: #00fff5;
     }
@@ -74,11 +76,6 @@ const Link = styled(NavLink)`
     font-weight: 400;
     line-height: 24px;
 `
-
-const Body = styled.div`
-    display: flex;
-    width: 100%;
-`;
 
 const Logo = styled.div`
     display: flex;
@@ -98,7 +95,7 @@ Logo.Title = styled('div')`
     font-weight: 500;
 `
 
-const Span = styled.div`
+const LoginSpan = styled.div`
     @media (max-width: 768px) {
         display: none;
     }
@@ -161,5 +158,10 @@ const Links = styled(NavLink)`
     border-bottom: 1px solid var(--secondaryColor);
 `
 
-export { Wrapper, Links, Space, Hamburger, Menu, User, Span, Container, Body, NavbarWrapper, NavbarBody, Link, Logo };
+const Body = styled.div`
+    display: flex;
+    width: 100%;
+`;
+
+export { Wrapper, Links, Space, Hamburger, Menu, User, LoginSpan, Container, Body, NavbarWrapper, NavbarBody, Link, Logo };
 

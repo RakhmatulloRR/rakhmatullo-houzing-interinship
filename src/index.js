@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import { Root } from './root';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import {ReactQueryDevtools} from "react-query/devtools"
+import { ReactQueryDevtools } from 'react-query/devtools';
 
 const query = new QueryClient();
 
@@ -15,7 +15,7 @@ root.render(
       <BrowserRouter>
         <Root />
       </BrowserRouter>
-      <ReactQueryDevtools  initialIsOpen={false}  position="bottom-left" />
+      <ReactQueryDevtools position='bottom-right' />
     </QueryClientProvider>
   </React.StrictMode>
 );

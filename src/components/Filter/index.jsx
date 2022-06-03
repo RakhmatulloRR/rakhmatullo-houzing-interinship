@@ -22,23 +22,24 @@ export const Settings = () => {
     sort: query.get("sort"),
   });
   const navigate = useNavigate();
-  // const [list, setList] = useState([])
+  const [list, setList] = useState([]);
+  const [selectedCtg] = list?.filter((a) => a.id === +query.get("category_id"));
 
-  const {
-    isLoading,
-    data: list,
-    isError,
-    error,
-  } = useQuery("", () => {
-    return fetch(`${url}/v1/categories`, {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
+  useQuery(
+    "getCtgList",
+    () => {
+      return fetch(`${url}/v1/categories/list`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }).then((res) => res.json());
+    },
+    {
+      onSuccess: (res) => {
+        setList(res?.data || []);
       },
-    })
-      .then((res) => res.json())
-      .then((res) => res?.dataList?.[0] || []);
-  });
-  // console.log(list);
+    }
+  );
 
   const onChange = (e) => {
     const { value, name } = e.target;
@@ -60,10 +61,15 @@ export const Settings = () => {
     });
     navigate(`/properties`);
   };
-  // console.log(state, 'state');
 
-  const onSelect = ({ target }) => {
-    navigate(`${UseReplace("category_id", target?.value)}`);
+  const onSelect = (e) => {
+    console.dir(e.target);
+    let id = "";
+    e.target.childNodes.forEach((item, index) => {
+      if (item.value === e.target.value) id = item.id;
+    });
+
+    navigate(`${UseReplace("category_id", id)}`);
   };
 
   const content = (
@@ -130,15 +136,31 @@ export const Settings = () => {
           onChange={onChange}
           name="max_price"
         />
-        <Select defaultValue={query.get("category_id")} onChange={onSelect}>
-          {list?.map((item, index) => {
+        <Select value={selectedCtg?.name} onChange={onSelect}>
+          {list?.map((item) => {
             return (
-              <option key={item} value={index + 1}>
-                {item}
+              <option id={item.id} value={item.name} key={item.id}>
+                {item.name}
               </option>
             );
           })}
         </Select>
+        {/* <Select
+          value={selectedCtg?.name}
+          defaultValue={"default"}
+          onChange={onSelect}
+        >
+          <option value={"default"}>{selectedCtg?.name}</option>;
+          {list?.map((item) => {
+            return (
+              item.name !== selectedCtg?.name && (
+                <option key={item.id} value={item.id}>
+                  {item.name}
+                </option>
+              )
+            );
+          })}
+        </Select> */}
       </Advanced.Section>
       <Advanced.Section>
         {/* <Button  width={'128px'} type={'secondary'} >Cancel</Button> */}
@@ -148,38 +170,31 @@ export const Settings = () => {
       </Advanced.Section>
     </Advanced>
   );
-  if (isLoading) {
-    return <h1>Loading...</h1>;
-  } else if (isError) {
-    return <h1>{error.message}</h1>;
-  } else {
-    return (
-      <Container>
-        <Wrapper>
-          {/* Input */}
-          <Input
-            pl={"44px"}
-            type="text"
-            placeholder={"Enter an address, neighborhood, city, or ZIP code"}
-          >
-            {<Icon.Home />}
-          </Input>
-          {/* Settings button */}
-          <Popover placement="bottomRight" content={content} trigger="click">
-            <Button width={"131px"} type="secondary">
-              <Icon.Settings />
-              Advanced
-            </Button>
-          </Popover>
-          {/* Search button */}
-          <Button width={"180px"} type="primary">
-            <Icon.Search />
-            Search
+  return (
+    <Container>
+      <Wrapper>
+        {/* Input */}
+        <Input
+          pl={"50px"}
+          type="text"
+          placeholder={"Enter an address, neighborhood, city, or ZIP code"}
+        >
+          {<Icon.Home />}
+        </Input>
+        {/* Settings button */}
+        <Popover placement="bottomRight" content={content} trigger="click">
+          <Button width={"131px"} type="secondary">
+            <Icon.Settings />
+            Advanced
           </Button>
-        </Wrapper>
-      </Container>
-    );
-  }
+        </Popover>
+        {/* Search button */}
+        <Button width={"180px"} type="primary">
+          <Icon.Search /> Search
+        </Button>
+      </Wrapper>
+    </Container>
+  );
 };
 
 export default Settings;

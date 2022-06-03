@@ -13,18 +13,21 @@ const Container = styled.div`
     border: 1px solid #E6E9EC;
     border-radius: 3px;
     background-color: #FFFFFF;
-    max-width: 380px;
-    min-width: 380px;
-    height: fit-content;
-    /* min-height: 430px; */
+    /* max-width: 380px;
+    min-width: 380px; */
+    width: 380px;
+    height: 430px;
     margin-right: ${({ mr }) => mr && `${mr}px`};
     margin-bottom: ${({ mb }) => mb && `${mb}px`};
 `
 
-const Img = styled.img`
+const Img = styled.div`
     width: 100%;
-    /* height: fit-content; */
-    /* min-height: 220px; */
+    /* height: 220px; */
+    background-image: url(${({src}) => src});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     min-height: 220px;
     max-height: 220px;
 `
@@ -46,8 +49,7 @@ const Info = styled.div`
 Info.Detail = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: start;
-    /* align-items: center; */
+    align-items: center;
 `
 
 const Icons = styled.div``
@@ -63,10 +65,8 @@ Icons.Resize = styled(resize)`
     cursor: pointer;
     :active{
         transform: scale(0.97);
-        /* fill: black; */
     }
 `
-// 430
 Icons.Love = styled(love)`
     border-radius: 50%;
     margin-left: 20px;
@@ -80,7 +80,6 @@ Icons.Love = styled(love)`
     }
     :active{
         transform: scale(0.97);
-        
     }
 `
 
@@ -104,15 +103,20 @@ const User = styled.div`
     right: 20px;
     top: -23px;
     border-radius: 50%;
+    border: 4px solid white;
     background-color: #ffffff;
     box-shadow: 0px 0px 10px rgba(13, 38, 59, 0.2);
     overflow: hidden;
 `
 
-User.Img = styled.img`
-    width: 43px;
-    height: 43px;
-    object-fit: cover;
+User.Img = styled.div`
+    width: 100%;
+    height: 100%;
+    background-image: url(${({src}) => src});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    /* object-fit: cover; */
 `
 
 export { Container, Img, InfoWrapper, Info, Icons, Footer, User }
