@@ -4,7 +4,7 @@ import Contacts from '../pages/ContactsPage';
 import Register from '../components/Register';
 import { SignIn } from '../components/SignIn';
 import { Favourite } from '../pages/FavouritePage';
-import SelectedHouse from '../pages/SelectedHouse';
+import SelectedHousePage from '../pages/HouseDetailsPage';
 
 
 export const navbar = [
@@ -64,9 +64,9 @@ export const navbar = [
     },
     {
         id: 7,
-        title: 'Selected House',
+        title: 'House Details',
         path: '/properties/:id',
-        element: <SelectedHouse />,
+        element: <SelectedHousePage />,
         search: '?',
         params: true,
         hidden: true,

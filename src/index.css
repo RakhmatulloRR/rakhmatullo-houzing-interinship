@@ -142,3 +142,8 @@ body {
   min-width: 380px;
   gap: 20px;
 }
+
+.ant-modal-content{
+  height: 550px;
+  overflow: scroll;
+}

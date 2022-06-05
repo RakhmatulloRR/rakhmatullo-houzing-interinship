@@ -29,7 +29,7 @@ export const ProportiesComponent = () => {
     }
   );
   const onSelect = (id) => {
-    navigate(`/properties/:${id}`);
+    navigate(`/properties/${id}`); // bu jo'natilgan malumot params orqali tutib olinadi
   };
 
   return (
