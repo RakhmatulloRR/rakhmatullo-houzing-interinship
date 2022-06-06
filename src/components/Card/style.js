@@ -49,7 +49,8 @@ const Info = styled.div`
 Info.Detail = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
+    justify-content: center;
 `
 
 const Icons = styled.div``

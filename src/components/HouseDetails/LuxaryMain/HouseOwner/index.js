@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../../Generic/Button";
+import Button from "../../../Generic/Button";
 import {
   Checkbox,
   Container,
@@ -10,7 +10,7 @@ import {
   Title,
   Wrapper,
 } from "./style";
-import user from "../../../assets/imgs/nouser.png";
+import user from "../../../../assets/imgs/nouser.png";
 
 export default function HouseOwner() {
   return (

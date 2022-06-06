@@ -1,8 +1,12 @@
 import React from "react";
-import HouseOwner from "../HouseOwner";
+import Features from "./Features";
+import HouseOwner from "./HouseOwner";
+import Reviews from "./Reviews";
+import WriteAReview from "./WriteAReview";
 import Location from "./Location";
 import PropertyDetails from "./PropertyDetails";
 import { Container, LuxLeft, LuxRight, Wrapper } from "./style";
+import ScheduleATour from "./ScheduleATour";
 
 export const Luxary = ({ house }) => {
   console.log(house);
@@ -121,6 +125,19 @@ export const Luxary = ({ house }) => {
           <LuxLeft.Line />
           {/* ===== PropertyDetails ===== */}
           <PropertyDetails house={house} />
+          <LuxLeft.Line />
+          {/* ===== Features ===== */}
+          <Features />
+          <LuxLeft.Line />
+          {/* ===== ScheduleATour ===== */}
+          <ScheduleATour />
+          <LuxLeft.Line />
+          {/* Reviews */}
+          <Reviews />
+          <LuxLeft.Line />
+          {/* WriteAReviews */}
+          <WriteAReview />
+         
         </LuxLeft>
         <LuxRight>
           <HouseOwner />

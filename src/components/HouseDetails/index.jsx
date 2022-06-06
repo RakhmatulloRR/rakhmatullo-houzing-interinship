@@ -3,8 +3,9 @@ import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import { Container } from "./style";
 
-import ImgsBox from './ImgsBox';
-import Luxary from './Luxary';
+import ImgsBox from "./ImgsBox";
+import LuxaryMain from "./LuxaryMain";
+import SimilarListenings from "./SimilarListings";
 
 const { REACT_APP_BASE_URL: url } = process.env;
 
@@ -33,8 +34,10 @@ export const HouseDetails = () => {
 
   return (
     <Container>
-        <ImgsBox />
-        <Luxary house={house} />
+      <ImgsBox />
+      <LuxaryMain house={house} />
+      {/* Similar listings */}
+      <SimilarListenings />
     </Container>
   );
 };
