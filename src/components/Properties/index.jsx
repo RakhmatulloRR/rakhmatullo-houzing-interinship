@@ -5,7 +5,7 @@ import Card from "../Card";
 import { useQuery } from "react-query";
 import { Button } from "../Generic";
 import { useLocation, useNavigate } from "react-router-dom";
-import UseSearch from "../../hooks/useSearch";
+// import UseSearch from "../../hooks/useSearch";
 import { Body, Container, CountWrapper, Wrapper } from "./style";
 
 const { REACT_APP_BASE_URL: url } = process.env;

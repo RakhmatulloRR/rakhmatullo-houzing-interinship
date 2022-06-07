@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Button, Input } from "../Generic";
 import { Container, Wrapper, Icon, Advanced, Select } from "./style";
 import { Popover } from "antd";
@@ -9,56 +9,60 @@ import { useQuery } from "react-query";
 
 const { REACT_APP_BASE_URL: url } = process.env;
 
-export const Settings = () => {
-  const query = useSearch();
-  const [state, setState] = useState({
-    country: query.get("country"),
-    city: query.get("city"),
-    region: query.get("region"),
-    zipCode: query.get("zipCode"),
-    maxPrice: query.get("maxPrice"),
-    minPrice: query.get("minPrice"),
-    size: query.get("size"),
-    sort: query.get("sort"),
-  });
-  const navigate = useNavigate();
-  const [list, setList] = useState([]);
-  const [selectedCtg] = list?.filter((a) => a.id === +query.get("category_id"));
+export default function Filter() {
 
-  useQuery(
-    "getCtgList",
-    () => {
-      return fetch(`${url}/v1/categories/list`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      }).then((res) => res.json());
-    },
-    {
-      onSuccess: (res) => {
-        setList(res?.data || []);
+
+  const query = useSearch();
+  const navigate = useNavigate();
+
+  const countryRef = useRef("");
+  const cityRef = useRef("");
+  const regionRef = useRef("");
+  const zipCodeRef = useRef("");
+  const roomRef = useRef("");
+  const maxPriceRef = useRef("");
+  const minPriceRef = useRef("");
+  const sizeRef = useRef("");
+  const sortRef = useRef("");
+
+  const fetchData = () => {
+    return fetch(`${url}/v1/categories/list`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
-    }
+    }).then((res) => res.json());
+  };
+  const [list, setList] = useState([]);
+  useQuery("getCtgList", fetchData, {
+    onSuccess: (res) => setList(res?.data || []),
+  });
+  const [selectedCtg] = list?.filter(
+    (a) => a?.id === +query.get("category_id")
   );
 
-  const onChange = (e) => {
-    const { value, name } = e.target;
-    // navigate(`${pathname}?${name}=${value}`);
-    navigate(`${UseReplace(name, value)}`);
-    setState({ ...state, [name]: value });
+  const onChange = () => {
+    navigate(`${UseReplace("country", countryRef.current.value)}`);
+    navigate(`${UseReplace("city", cityRef.current.value)}`);
+    navigate(`${UseReplace("region", regionRef.current.value)}`);
+    navigate(`${UseReplace("zipCode", zipCodeRef.current.value)}`);
+    navigate(`${UseReplace("room", roomRef.current.value)}`);
+    navigate(`${UseReplace("maxPrice", maxPriceRef.current.value)}`);
+    navigate(`${UseReplace("minPrice", minPriceRef.current.value)}`);
+    navigate(`${UseReplace("size", sizeRef.current.value)}`);
+    navigate(`${UseReplace("sort", sortRef.current.value)}`);
   };
 
   const onClear = () => {
-    setState({
-      country: "",
-      city: "",
-      region: "",
-      zipCode: "",
-      maxPrice: "",
-      minPrice: "",
-      size: "",
-      sort: "sort",
-    });
+    countryRef.current.value = "";
+    cityRef.current.value = "";
+    regionRef.current.value = "";
+    zipCodeRef.current.value = "";
+    roomRef.current.value = "";
+    maxPriceRef.current.value = "";
+    minPriceRef.current.value = "";
+    sizeRef.current.value = "";
+    sortRef.current.value = "";
+
     navigate(`/properties`);
   };
 
@@ -71,32 +75,35 @@ export const Settings = () => {
 
     navigate(`${UseReplace("category_id", id)}`);
   };
-
   const content = (
     <Advanced>
       <Advanced.Title>Address</Advanced.Title>
       <Advanced.Section>
         <Input
           placeholder={"Country"}
-          value={state.country}
+          ref={countryRef}
+          defaultValue={query.get("country")}
           onChange={onChange}
           name="country"
         />
         <Input
           placeholder={"Region"}
-          value={state.region}
+          ref={regionRef}
+          defaultValue={query.get("region")}
           onChange={onChange}
           name="region"
         />
         <Input
           placeholder={"City"}
-          value={state.city}
+          ref={cityRef}
+          defaultValue={query.get("city")}
           onChange={onChange}
           name="city"
         />
         <Input
           placeholder={"Zip Code"}
-          value={state.zip_code}
+          ref={zipCodeRef}
+          defaultValue={query.get("zipCode")}
           onChange={onChange}
           name="zip_code"
         />
@@ -105,19 +112,22 @@ export const Settings = () => {
       <Advanced.Section>
         <Input
           placeholder={"Room"}
-          value={state.room}
+          ref={roomRef}
+          defaultValue={query.get("room")}
           onChange={onChange}
           name="room"
         />
         <Input
           placeholder={"Size"}
-          value={state.size}
+          ref={sizeRef}
+          defaultValue={query.get("size")}
           onChange={onChange}
           name="size"
         />
         <Input
           placeholder={"Sort"}
-          value={state.sort}
+          ref={sortRef}
+          defaultValue={query.get("sort")}
           onChange={onChange}
           name="sort"
         />
@@ -126,13 +136,15 @@ export const Settings = () => {
       <Advanced.Section>
         <Input
           placeholder={"Min price"}
-          value={state.minPrice}
+          ref={minPriceRef}
+          defaultValue={query.get("minPrice")}
           onChange={onChange}
           name="min_price"
         />
         <Input
           placeholder={"Max price"}
-          value={state.maxPrice}
+          ref={maxPriceRef}
+          defaultValue={query.get("maxPrice")}
           onChange={onChange}
           name="max_price"
         />
@@ -195,6 +207,4 @@ export const Settings = () => {
       </Wrapper>
     </Container>
   );
-};
-
-export default Settings;
+}

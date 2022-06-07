@@ -36,7 +36,7 @@ export const Card = ({ info, mr, mb, bg, onClick }) => {
           <Info.Detail>
             <Icons.Bed />
             <div className="description">
-              {info?.houseDetails?.room || 0} Beds
+              {info?.houseDetails?.beds || 0} Beds
             </div>
           </Info.Detail>
           <Info.Detail>

@@ -1,92 +1,96 @@
-import React, {useState} from 'react'
-import { useNavigate } from 'react-router-dom';
-import { Button, Input } from '../Generic';
-import { Container, Formm, InputPassword, Inputt, Wrapper, Title, Checkboxx, Section, Forgot } from './style'
-import { notification } from 'antd';
-import { useMutation, useQuery } from 'react-query';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Button, Input } from "../Generic";
+import {
+  Container,
+  Form,
+  Wrapper,
+  Title,
+  Section,
+  Forgot,
+  Checkbox,
+} from "./style";
+import { useMutation } from "react-query";
 
-const {REACT_APP_BASE_URL:url} = process.env
+const { REACT_APP_BASE_URL: url } = process.env;
 
+export default function SignIn() {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-export const SignIn = () => {
-
-    const navigate = useNavigate();
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-
-
-    const onFinish = (values) => {
-      // console.log('Success:', values);
-    };
-  
-    const onFinishFailed = (errorInfo) => {
-      // console.log('Failed:', errorInfo);
-    };
-
-    // useQuery('', ()=>{})
-    const {mutate} = useMutation(
-      () => {
-        return fetch(`${url}/public/auth/login`, 
-          {method: 'POST', 
-          body: JSON.stringify({email, password}), 
-          headers: {
-            'Content-type':'application/json'
-          }
-        }).then((res) => res.json())
-      },
-      {
-        onSuccess: (res) => {
-          localStorage.setItem('token', res?.authenticationToken)
-          if(res?.ok){
-            navigate('/home')
-          }
+  const { mutate } = useMutation(
+    () => {
+      console.log(email, password);
+      return fetch(`${url}/public/auth/login`, {
+        method: "POST",
+        body: JSON.stringify({
+          email: email,
+          password: password,
+        }),
+        headers: {
+          "Content-type": "application/json",
         },
-        onError: (res) => {
-          
-        }
-      }
-    )
-
-    const onSubmit = () => {
-      mutate();
-      
-      // notification[]({
-      //     message: '',
-      //     description:
-      //       'You have successfully logged in.',
-      // });
+      }).then((res) => res.json());
+    },
+    {
+      onSuccess: (res) => {
+        console.log(res);
+        localStorage.setItem("token", res?.authenticationToken);
+        alert("Logged In Successfully");
+        navigate("/home");
+      },
+      onError: (res) => {
+        alert("Error Email or Password");
+      },
     }
+  );
+
+  const onSubmit = () => {
+    mutate();
+  };
+  const inputStyle = {
+    mb: 20,
+    bt: "0",
+    bl: 0,
+    br: 0,
+    bb: "3px solid #E6E9EC",
+    pl: "0",
+  };
   return (
     <Container>
-        <Wrapper>
-            <Formm
-                name="basic"
-                labelCol={{
-                    span: 8,
-                }}
-                wrapperCol={{
-                    span: 16,
-                }}
-                initialValues={{
-                    remember: true,
-                }}
-                onFinish={onFinish}
-                onFinishFailed={onFinishFailed}
-                autoComplete="off"
-                >
-                <Title>Sign in</Title>
-                <Input onChange={({target}) => setEmail(target?.value)} value={email} mb={20} width='100%' placeholder='User name' />
-                <Input onChange={({target}) => setPassword(target?.value)} value={password} placeholder='Password' />
-                <Section>
-                    <Checkboxx>Remember me</Checkboxx>
-                    <Forgot>Forgot</Forgot>
-                </Section>
-                <Button onClick={onSubmit} type={'primary'} mt={15} htmlType="submit">SignIn</Button>
-                <div onClick={() => navigate('/register')} className="subtitle center" style={{marginTop: '20px', cursor: 'pointer'}}>Did you Register?</div>
-            </Formm>
-        </Wrapper>
+      <Wrapper>
+        <Form>
+          <Title>Sign in</Title>
+          <Input
+            {...inputStyle}
+            onChange={({ target }) => setEmail(target?.value)}
+            value={email}
+            width="100%"
+            placeholder="User name"
+          />
+          <Input
+            {...inputStyle}
+            type="text"
+            onChange={({ target }) => setPassword(target?.value)}
+            value={password}
+            placeholder="Password"
+          />
+          <Section>
+            <Checkbox>Remember me</Checkbox>
+            <Forgot>Forgot</Forgot>
+          </Section>
+          <Button onClick={onSubmit} type={"primary"} mt={15} htmlType="submit">
+            Sign in
+          </Button>
+          <Form.Register
+            onClick={() => navigate("/register")}
+            className="subtitle center"
+          >
+            Did you Register?
+          </Form.Register>
+        </Form>
+      </Wrapper>
     </Container>
-  )
+  );
 }
-
-export default SignIn

@@ -15,6 +15,10 @@ export const Input = forwardRef(
       ml,
       mb,
       mt,
+      br,
+      bl,
+      bb,
+      bt,
       pr,
       pl,
       pt,
@@ -33,6 +37,10 @@ export const Input = forwardRef(
           pr={pr}
           pt={pt}
           pb={pb}
+          bl={bl}
+          br={br}
+          bt={bt}
+          bb={bb}
           type={type}
           width={width}
           height={height}

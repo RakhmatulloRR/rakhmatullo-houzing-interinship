@@ -46,6 +46,10 @@ const Container = styled.input`
     
     border-radius: 2px;
     border: 1px solid #E6E9EC;
+    border-left: ${({ bl }) => `${bl}`};
+    border-right: ${({ br }) => `${br}`};
+    border-top: ${({ bt }) => `${bt}`};
+    border-bottom: ${({ bb }) => `${bb}`};
     outline: none;
     font-style: normal;
     font-weight: 400;
@@ -57,6 +61,7 @@ const Container = styled.input`
 
 const Icon = styled.div`
     position: absolute;
+    /* width: 100%; */
     top: 50%;
     left: 30px;
     transform: translate(-50%, -50%);

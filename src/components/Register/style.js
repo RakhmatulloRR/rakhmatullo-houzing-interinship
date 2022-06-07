@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { Input, Form, Button } from 'antd'
 
 const Container = styled.div`
     width: 100%;
@@ -18,7 +17,7 @@ const Wrapper = styled.div`
     }
 `
 
-const Formm = styled(Form)`
+const Form = styled("div")`
     width: 580px;
     background: #FFFFFF;
     border: 1px solid #E6E9EC;
@@ -40,21 +39,6 @@ const Title = styled.div`
     margin-bottom: 25px;
 `
 
-const Inputt = styled(Input)`
-    width: 100%;
-    margin-bottom: 20px;
-    border: none;
-    border-bottom: 2px solid #E6E9EC;
-    outline: none;
-`
-
-const InputPassword = styled(Input.Password)`
-    width: 100%;
-    margin-bottom: 23px;
-    border: none;
-    border-bottom: 2px solid #E6E9EC;
-    outline: none;
-`
 
 
-export { Container, Wrapper, Inputt, Formm, InputPassword,  Title }
+export { Container, Wrapper, Form,  Title }

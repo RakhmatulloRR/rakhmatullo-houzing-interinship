@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import {ReactComponent as telegraph} from '../../assets/icons/telegraph.svg'
 
 const Container = styled.div`
     width: 100%;
@@ -8,11 +7,16 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
+     background-image: url(${({imgUrl}) => imgUrl});
+     background-repeat: no-repeat;
+     background-position: center;
     max-width: 1440px;
     width: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     padding: 110px 0 110px 0;
     @media (max-width: 768px){
         width: 100%;
@@ -20,17 +24,11 @@ const Wrapper = styled.div`
     }
 `;
 
-const Img = styled.img`
-    width: 800px;
-    @media (max-width: 768px){
-        width: 80%;
-    }
-`;
 
 const Title = styled.div`
     font-style: normal;
     font-weight: 600;
-    font-size: 30px;
+    font-size: 60px;
     line-height: 38px;
     color: #0D263B;
     margin-bottom: 17px;
@@ -42,49 +40,7 @@ const Title = styled.div`
     }
 `;
 
-const Description = styled.div`
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;
-    text-align: center;
-    color: #696969;
-    @media (max-width: 768px){
-        font-size: 13px;
-    }
-`;
 
-const Section = styled.div`
-    display: flex;
-    align-items: center;
-    margin-top: 32px;
-    margin-bottom: 17px;
-    width: 560px;
-    @media (max-width: 768px){
-        justify-content: center;
-        flex-direction: column;
-        margin-top: 25px;
-        margin-bottom: 14px;
-        width: 400px;
 
-    }
-`;
 
-const Back = styled.div`
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;
-    text-decoration-line: underline;
-    color: #0061DF;
-`
-
-const Telegraph = styled(telegraph)`
-    @media (max-width: 768px){
-        width: 18px;
-        height: 18px;
-
-    }
-`;
-
-export { Container, Wrapper, Img, Title, Description, Section, Telegraph, Back };
+export { Container, Wrapper, Title };
