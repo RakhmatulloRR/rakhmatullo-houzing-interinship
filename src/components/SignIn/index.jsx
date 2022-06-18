@@ -1,61 +1,72 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Button, Input } from "../Generic";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Button, Input } from '../Generic';
 import {
   Container,
   Form,
   Wrapper,
   Title,
-  Section,
+  Info,
   Forgot,
   Checkbox,
-} from "./style";
-import { useMutation } from "react-query";
+  Error,
+} from './style';
+import { useMutation } from 'react-query';
 
 const { REACT_APP_BASE_URL: url } = process.env;
 
 export default function SignIn() {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState(null);
 
-  const { mutate } = useMutation(
-    () => {
-      console.log(email, password);
-      return fetch(`${url}/public/auth/login`, {
-        method: "POST",
-        body: JSON.stringify({
-          email: email,
-          password: password,
-        }),
-        headers: {
-          "Content-type": "application/json",
-        },
-      }).then((res) => res.json());
-    },
-    {
-      onSuccess: (res) => {
-        console.log(res);
-        localStorage.setItem("token", res?.authenticationToken);
-        alert("Logged In Successfully");
-        navigate("/home");
+  const { mutate } = useMutation(() => {
+    console.log(email, password);
+    return fetch(`${url}/public/auth/login`, {
+      method: 'POST',
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+      headers: {
+        'Content-type': 'application/json',
       },
-      onError: (res) => {
-        alert("Error Email or Password");
-      },
-    }
-  );
+    }).then((res) => res.json());
+  });
 
   const onSubmit = () => {
-    mutate();
+    if (email?.length && password?.length) {
+      mutate(
+        {},
+        {
+          onSuccess: (res) => {
+            console.log(res);
+            if (res?.authenticationToken) {
+              localStorage.setItem('token', res?.authenticationToken);
+              alert('Logged In Successfully');
+              setError('');
+              navigate('/home');
+            } else {
+              setError('email or password is not valid');
+            }
+          },
+          onError: (res) => {
+            setError(res.message);
+          },
+        }
+      );
+    } else {
+      setError('email or password mast not be empty');
+    }
   };
   const inputStyle = {
     mb: 20,
-    bt: "0",
+    bt: '0',
     bl: 0,
     br: 0,
-    bb: "3px solid #E6E9EC",
-    pl: "0",
+    bb: '3px solid #E6E9EC',
+    pl: '0',
   };
   return (
     <Container>
@@ -63,29 +74,39 @@ export default function SignIn() {
         <Form>
           <Title>Sign in</Title>
           <Input
+            name='email'
+            type='text'
             {...inputStyle}
-            onChange={({ target }) => setEmail(target?.value)}
+            onChange={({ target }) => {
+              setError('');
+              setEmail(target?.value);
+            }}
             value={email}
-            width="100%"
-            placeholder="User name"
+            width='100%'
+            placeholder='User name'
           />
           <Input
+            name={password}
             {...inputStyle}
-            type="text"
-            onChange={({ target }) => setPassword(target?.value)}
+            type='password'
+            onChange={({ target }) => {
+              setError('');
+              setPassword(target?.value);
+            }}
             value={password}
-            placeholder="Password"
+            placeholder='Password'
           />
-          <Section>
+          {error && <Error>{error}</Error>}
+          <Info>
             <Checkbox>Remember me</Checkbox>
             <Forgot>Forgot</Forgot>
-          </Section>
-          <Button onClick={onSubmit} type={"primary"} mt={15} htmlType="submit">
+          </Info>
+          <Button onClick={onSubmit} type={'primary'} mt={15} htmlType='submit'>
             Sign in
           </Button>
           <Form.Register
-            onClick={() => navigate("/register")}
-            className="subtitle center"
+            onClick={() => navigate('/register')}
+            className='subtitle center'
           >
             Did you Register?
           </Form.Register>

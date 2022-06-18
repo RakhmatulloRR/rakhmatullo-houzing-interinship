@@ -111,15 +111,20 @@ body {
   }
 }
 
-.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+.ant-select:not(.ant-select-customize-input) .ant-select-selector{
   border: none;
+  outline: none;
+}
+
+/* .ant-select:not(.ant-select-customize-input) .ant-select-selector { */
+  /* border: none;
   border-bottom: 2px solid #e6e9ec;
 }
 
 .ant-select:not(.ant-select-customize-input) .ant-select-selector:focus {
   border: none;
   border-bottom: 2px solid #e6e9ec;
-}
+} */
 /* 
     .alice-carousel{
         position: relative;

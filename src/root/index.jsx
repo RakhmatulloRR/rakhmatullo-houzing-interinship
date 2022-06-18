@@ -9,6 +9,7 @@ export const Root = () => {
   return (
     <>
       <Routes>
+        <Route path="/profile" element={<Navigate to={"/profile/roperties"} />} />
         <Route path="/" element={<Navigate to={"/home"} />} />
 
         <Route>

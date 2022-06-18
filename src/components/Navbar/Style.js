@@ -96,6 +96,8 @@ Logo.Title = styled('div')`
 `
 
 const LoginSpan = styled.div`
+   display: flex;
+   gap: 20px;
     @media (max-width: 768px) {
         display: none;
     }

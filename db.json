@@ -1,0 +1,143 @@
+[
+  {
+    "address": "G'allaorol, Jizzakh, Uzbekistan",
+    "attachments": [
+      {
+        "imgPath": "https://cdn.pixabay.com/photo/2016/08/11/23/48/mountains-1587287_960_720.jpg"
+      }
+    ],
+    "categoryId": 3,
+    "city": "G'allaorol",
+    "componentsDto": {
+      "additional": "string",
+      "airCondition": true,
+      "courtyard": true,
+      "furniture": true,
+      "gasStove": true,
+      "internet": true,
+      "tv": true
+    },
+    "country": "Uzbekistan",
+    "description": "There are some things that aren’t captured by “3 bed, 2 bath, 2 car garage”. Do you have a true mother-in-law suite with kitchenette and an en suite bath? Be sure to clarify that! Do you know the builder name which might add some oomph? Mention it!",
+    "favorite": true,
+    "homeAmenitiesDto": {
+      "additional": "string",
+      "busStop": true,
+      "garden": true,
+      "market": true,
+      "park": true,
+      "parking": true,
+      "school": true,
+      "stadium": true,
+      "subway": true,
+      "superMarket": true
+    },
+    "houseDetails": {
+      "area": 200,
+      "bath": 2,
+      "beds": 3,
+      "garage": 1,
+      "room": 10,
+      "yearBuilt": 2005
+    },
+    "locations": {
+      "latitude": 30.632004,
+      "longitude": 49.808202
+    },
+    "name": "Rakhmatullo",
+    "price": 80000,
+    "region": "Jizzakh",
+    "salePrice": 75000,
+    "status": "medium",
+    "zipCode": "130400"
+  },
+
+  {
+    "success": true,
+    "message": "Category List",
+    "data": [
+      {
+        "id": 2,
+        "createdAt": "2022-02-25T15:53:09.112Z",
+        "updateAt": null,
+        "createdBy": null,
+        "updateBy": null,
+        "name": "Villa"
+      },
+      {
+        "id": 3,
+        "createdAt": "2022-02-25T15:53:22.307Z",
+        "updateAt": null,
+        "createdBy": null,
+        "updateBy": null,
+        "name": "Townhouse"
+      },
+      {
+        "id": 4,
+        "createdAt": "2022-02-25T15:53:29.918Z",
+        "updateAt": null,
+        "createdBy": null,
+        "updateBy": null,
+        "name": "Cottage"
+      },
+      {
+        "id": 6,
+        "createdAt": "2022-03-18T03:00:37.993Z",
+        "updateAt": null,
+        "createdBy": null,
+        "updateBy": null,
+        "name": "hovli"
+      },
+      {
+        "id": 7,
+        "createdAt": "2022-03-27T20:54:48.793Z",
+        "updateAt": null,
+        "createdBy": null,
+        "updateBy": null,
+        "name": "string"
+      },
+      {
+        "id": 1,
+        "createdAt": "2022-02-25T15:52:59.468Z",
+        "updateAt": null,
+        "createdBy": null,
+        "updateBy": null,
+        "name": "dom"
+      },
+      {
+        "id": 41,
+        "createdAt": "2022-04-13T09:17:52.430Z",
+        "updateAt": "2022-04-13T09:17:52.410Z",
+        "createdBy": 1,
+        "updateBy": 1,
+        "name": "DALA HOVLI"
+      },
+      {
+        "id": 47,
+        "createdAt": "2022-06-07T17:14:32.835Z",
+        "updateAt": null,
+        "createdBy": null,
+        "updateBy": null,
+        "name": "name"
+      },
+      {
+        "id": 49,
+        "createdAt": "2022-06-08T02:35:06.263Z",
+        "updateAt": null,
+        "createdBy": null,
+        "updateBy": null,
+        "name": "Authorization"
+      },
+      {
+        "id": 54,
+        "createdAt": "2022-06-17T09:32:13.759Z",
+        "updateAt": null,
+        "createdBy": null,
+        "updateBy": null,
+        "name": "dom2"
+      }
+    ],
+    "map": {},
+    "status": "OK"
+  }
+]

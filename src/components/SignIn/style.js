@@ -48,7 +48,7 @@ const Checkbox = styled(CheckboxAnt)`
   width: 100%;
 `;
 
-const Section = styled.div`
+const Info = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-betweena;
@@ -69,5 +69,8 @@ const Forgot = styled.div`
     transform: scale(0.97);
   }
 `;
+const Error = styled.div`
+  color: red;
+`;
 
-export { Container, Wrapper, Form, Title, Checkbox, Section, Forgot };
+export { Container, Wrapper, Form, Title, Checkbox, Info, Forgot, Error };

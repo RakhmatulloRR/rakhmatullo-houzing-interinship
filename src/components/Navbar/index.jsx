@@ -1,7 +1,7 @@
-import React from "react";
-import { Outlet, useNavigate } from "react-router-dom";
-import { navbar } from "../../utils/navbar";
-import { Button } from "../Generic";
+import React from 'react';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { navbar } from '../../utils/navbar';
+import { Button } from '../Generic';
 import {
   Body,
   Container,
@@ -12,16 +12,19 @@ import {
   NavbarWrapper,
   User,
   Wrapper,
-} from "./style";
+} from './style';
 
 export default function Navbar() {
+  const location = useLocation();
+  console.log(location.pathname);
+  console.log(location.search);
   const navigate = useNavigate();
 
   return (
     <Wrapper>
-      <Container className="nocopy">
+      <Container className='nocopy'>
         <NavbarWrapper>
-          <Logo onClick={() => navigate("/")}>
+          <Logo onClick={() => navigate('/')}>
             <Logo.Icon />
             <Logo.Title>Houzing</Logo.Title>
           </Logo>
@@ -37,13 +40,33 @@ export default function Navbar() {
             })}
           </NavbarBody>
           <LoginSpan>
-            <Button
-              class="loginn"
-              onClick={() => navigate("/signin")}
-              width={"120px"}
-            >
-              Login
-            </Button>
+            {localStorage.getItem('token') ? (
+              <>
+                <Button
+                  onClick={() => navigate('/profile/properties')}
+                  width={'120px'}
+                >
+                  Profile
+                </Button>
+                <Button
+                  onClick={() => {
+                    localStorage.removeItem('token');
+                    if (location?.pathname?.includes('profile')) {
+                      navigate('/home');
+                    } else {
+                      navigate(`${location.pathname}${location?.search || ""}`);
+                    }
+                  }}
+                  width={'120px'}
+                >
+                  Log out
+                </Button>
+              </>
+            ) : (
+              <Button onClick={() => navigate('/signin')} width={'120px'}>
+                Login
+              </Button>
+            )}
           </LoginSpan>
           <User />
         </NavbarWrapper>

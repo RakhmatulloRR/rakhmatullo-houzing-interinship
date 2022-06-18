@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import Filter from "../Filter";
-import { Select } from "antd";
 import Card from "../Card";
 import { useQuery } from "react-query";
 import { Button } from "../Generic";
 import { useLocation, useNavigate } from "react-router-dom";
 // import UseSearch from "../../hooks/useSearch";
-import { Body, Container, CountWrapper, Wrapper } from "./style";
+import { Body, Container, CountWrapper, Sort, Wrapper } from "./style";
 
 const { REACT_APP_BASE_URL: url } = process.env;
-const { Option } = Select;
 
 export const ProportiesComponent = () => {
   const [data, setData] = useState([]);
@@ -36,21 +34,20 @@ export const ProportiesComponent = () => {
     <Container>
       <Filter />
       <Wrapper>
-        <div className="title">{data[0]?.category.name || "Proporties"}</div>
+        <div className="title">{data[0]?.category?.name || "Proporties"}</div>
         <div className="description">
           Siz orzu qilgan, siz izlagan shinam va arzon uylar.
         </div>
         <CountWrapper>
           <div className="description">{data?.length || 0} results</div>
-          <CountWrapper.Sort
-            defaultValue="Sort by: Newest Listings"
-            style={{ width: 250 }}
-          >
-            <Option value="jack">Sort by: Newest Listings</Option>
-            <Option value="lucy">Sort by: Oldest Listings</Option>
-            <Option value="disabled">Sort by: Expensive Listings</Option>
-            <Option value="Yiminghe">Sort by: Cheap Listings</Option>
-          </CountWrapper.Sort>
+          <Sort>
+            <option className="option" value="0">Sort By: Newest Listings</option>
+            <option className="option" value="1">Newest Listings</option>
+            <option className="option" value="2">Newest Listings</option>
+            <option className="option" value="3">Newest Listings</option>
+            <option className="option" value="4">Newest Listings</option>
+
+          </Sort>
         </CountWrapper>
         <Body>
           {data?.map((value) => (
